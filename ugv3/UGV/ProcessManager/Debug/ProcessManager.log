@@ -1,0 +1,4 @@
+﻿  ProcessManagerMain.cpp
+c:\users\iluveverycarrot\documents\visual studio 2015\projects\ugv\processmanager\processmanagermain.cpp(51): warning C4101: 'PMTimeStamp': unreferenced local variable
+  ProcessManager.vcxproj -> C:\Users\iluveverycarrot\Documents\Visual Studio 2015\Projects\UGV\Debug\ProcessManager.exe
+  ProcessManager.vcxproj -> C:\Users\iluveverycarrot\Documents\Visual Studio 2015\Projects\UGV\Debug\ProcessManager.pdb (Full PDB)

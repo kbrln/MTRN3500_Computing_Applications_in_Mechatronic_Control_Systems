@@ -1,0 +1,111 @@
+get engin.h
+
+send data to matlab
+send it back
+
+
+do a matlab thing
+
+
+constantly prompting for integer from shared mem
+
+constantly printing an integer from shared mem
+
+process manager
+processes can talk amongst eachother via shared memory
+
+moving around
+send to matlab plot
+
+
+need in project
+process management
+laser
+gps
+xbox
+simulator
+plotting
+	matlab or opengl
+UGV control - talks to wheel drive and steer
+
+include xbox in include
+
+should get heartbeat for other modules
+
+14:48 typecasting pointer or something aug 25
+20 processmanagement module
+
+3500 study
+struct endianness
+
+
+chuck things in process and controller so far - link stuff as well
+get laser data - all dat shits
+do plotting - using matlab
+
+unicode disable in processmanager
+UGVcontroller project rename to UGV
+add the header includes to get no errors
+comment out the kill switch
+add files to laser and include
+adjusted ethernetclient thing - copy paste into overload
+fill up LMS both h and cpp
+add in defines and pragma comment to laser main
+
+first distance second distance
+first reflec second reflec all in mm from 0 to 8m
+
+no login/configure/logout needed
+send zid instead
+remove stx and etc from ethernetclient?
+look in service details 
+removed +sign from configure 5000 and 1 but i mean do u even need to do configure
+
+error in assigning values to pLaser
+need to fix all the connectio nstuff - use brokeboi data in meantime
+
+HICCUPS
+connect and get data
+chuck data into SM -- WE DID IT OMG
+
+plotting library linker - additinoal libraries general and input 
+	c++ general extern/include
+	linker general microsoft folder
+	linker input list the 3	
+
+should matlab laser be from centre of bottom or centre of left
+
+
+TO DO:
+get gps coordinates and plot in matlab - perhaps create data of the laser and plot on top to create maze
+get camera data
+accept xbox input and send out control data
+
+change matlab script thing										did
+change UGV declaration to match laser main and change to remote						did
+add ugvcontrol class											did
+need to chuck in the port thing from usb value into ugv main declaration				did
+changed ugv main to have connect and drive functions							did
+added xbox include c++ general										did
+
+get xbox files and add to xbox										doin
+need to put in temrinate into project management main							did
+allowed access to created xbox										did
+instantiated xbox pointer underneath PM pointer								did
+changed Xbox to XBox in PM										did
+
+add the win32 mean and lean to controller as well as ugvcontrol.cpp					did
+add in pragma once											did
+add in ethernet client to ugvcontroller project								did
+
+NEED XBOX MODULE WOKRING
+
+chuck in xbox cpp and h											did
+chuck in directx shits											xinput?
+fiddle with other stuffs and see if can get working
+look at assignment 1 2016 if needed
+
+
+
+
+
