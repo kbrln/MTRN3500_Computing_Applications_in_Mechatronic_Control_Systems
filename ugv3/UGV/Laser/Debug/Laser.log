@@ -1,4 +1,8 @@
-﻿  LMS151.cpp
-c:\users\iluveverycarrot\documents\visual studio 2015\projects\ugv\common\lms151.cpp(76): warning C4477: 'sprintf_s' : format string '%+4d' requires an argument of type 'int', but variadic argument 1 has type 'double'
-  Laser.vcxproj -> C:\Users\iluveverycarrot\Documents\Visual Studio 2015\Projects\UGV\Debug\Laser.exe
-  Laser.vcxproj -> C:\Users\iluveverycarrot\Documents\Visual Studio 2015\Projects\UGV\Debug\Laser.pdb (Full PDB)
+﻿  EthernetClient.cpp
+  LMS151.cpp
+c:\users\kevin\documents\github\mtrn3500ass2\ugv3\ugv\common\lms151.cpp(76): warning C4477: 'sprintf_s' : format string '%+4d' requires an argument of type 'int', but variadic argument 1 has type 'double'
+  SMFcn.cpp
+  SMObject.cpp
+  LaserMain.cpp
+  Generating Code...
+  Laser.vcxproj -> C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\ugv3\UGV\Debug\Laser.exe
