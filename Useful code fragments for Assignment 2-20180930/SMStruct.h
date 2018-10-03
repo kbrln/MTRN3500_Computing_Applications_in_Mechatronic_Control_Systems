@@ -33,16 +33,16 @@ struct Plotting
 //set of flags for each process, will be used for status and heartbeat 
 struct UnitFlags 
 {
-	unsigned short PM : 1,
-		Laser : 1,
-		Plot : 1,
-		Remote : 1,
-		Simulator : 1,
-		UGV : 1,
-		GPS : 1,
-		SM : 1,
-		Hlevel : 1,
-		Unused : 7;
+	//critical mask		0000 0000 0111 1011 
+	//non-critical mask	0000 0000 0000 0100
+	unsigned short PM : 1, //critical
+		Laser : 1, //critical
+		GPS : 1, //non-critical
+		Camera : 1, //critical 
+		VehicleControl : 1,//critical
+		Remote : 1, //critical
+		Visualisation : 1, // (critical?)
+		Unused : 9;
 };
 
 //create a union so that flags can be accessed individually or collectively 

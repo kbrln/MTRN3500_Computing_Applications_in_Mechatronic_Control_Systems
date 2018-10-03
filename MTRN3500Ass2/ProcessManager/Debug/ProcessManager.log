@@ -1,3 +1,3 @@
 ﻿  ProcessManager.cpp
-c:\users\kevin\documents\github\mtrn3500ass2\mtrn3500ass2\processmanager\processmanager.cpp(138): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+c:\users\kevin\documents\github\mtrn3500ass2\mtrn3500ass2\processmanager\processmanager.cpp(140): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
   ProcessManager.vcxproj -> C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\MTRN3500Ass2\Debug\ProcessManager.exe

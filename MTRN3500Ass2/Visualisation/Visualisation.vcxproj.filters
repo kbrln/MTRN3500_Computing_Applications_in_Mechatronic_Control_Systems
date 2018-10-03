@@ -26,5 +26,11 @@
     <ClCompile Include="Visualisation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Useful code fragments for Assignment 2-20180930\SMFcn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Useful code fragments for Assignment 2-20180930\SMObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
