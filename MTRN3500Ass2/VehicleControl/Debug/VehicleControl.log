@@ -1,2 +1,3 @@
-﻿  VehicleControl.cpp
+﻿  SMFcn.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  SMFcn.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   VehicleControl.vcxproj -> C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\MTRN3500Ass2\Debug\VehicleControl.exe

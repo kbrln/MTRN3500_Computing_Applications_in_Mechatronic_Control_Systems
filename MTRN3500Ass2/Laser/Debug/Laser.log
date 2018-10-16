@@ -2,6 +2,8 @@
 c1xx : warning C4199: two-phase name lookup is not supported for C++/CLI, C++/CX, or OpenMP; use /Zc:twoPhase-
 c:\users\kevin\documents\github\mtrn3500ass2\mtrn3500ass2\laser\laser.cpp(264): warning C4101: 'Y': unreferenced local variable
 c:\users\kevin\documents\github\mtrn3500ass2\mtrn3500ass2\laser\laser.cpp(264): warning C4101: 'X': unreferenced local variable
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+c1xx : warning C4199: two-phase name lookup is not supported for C++/CLI, C++/CX, or OpenMP; use /Zc:twoPhase-
   SMFcn.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
   SMFcn.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   Laser.vcxproj -> C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\MTRN3500Ass2\Debug\Laser.exe

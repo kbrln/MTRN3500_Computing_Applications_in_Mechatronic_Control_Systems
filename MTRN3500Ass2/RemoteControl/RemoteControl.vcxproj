@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Useful code fragments for Assignment 2-20180930\SMFcn.cpp" />
     <ClCompile Include="..\..\Useful code fragments for Assignment 2-20180930\SMObject.cpp" />
+    <ClCompile Include="NonOOPXBox.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

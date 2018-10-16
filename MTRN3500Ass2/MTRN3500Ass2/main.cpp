@@ -5,6 +5,9 @@
 #include <cstring>
 #include <sstream>
 #include <map>
+#include <Windows.h>
+#include <SMObject.h>
+#include <SMStruct.h>
 
 #ifdef __APPLE__
 	#include <OpenGL/gl.h>
@@ -64,48 +67,60 @@ Vehicle * vehicle = NULL;
 double speed = 0;
 double steering = 0;
 
+int PMFailCount = 0; //detect PMT is still alive 
+
 //int _tmain(int argc, _TCHAR* argv[]) {
 int main(int argc, char ** argv) {
-
-	const int WINDOW_WIDTH = 800;
-	const int WINDOW_HEIGHT = 600;
-
-	glutInit(&argc, (char**)(argv));
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
-	glutInitWindowPosition(0, 0);
-	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-	glutCreateWindow("MTRN3500 - GL");
-
-	Camera::get()->setWindowDimensions(WINDOW_WIDTH, WINDOW_HEIGHT);
-
-	glEnable(GL_DEPTH_TEST);
-
-	glutDisplayFunc(display);
-	glutReshapeFunc(reshape);
-	glutIdleFunc(idle);
-
-	glutKeyboardFunc(keydown);
-	glutKeyboardUpFunc(keyup);
-	glutSpecialFunc(special_keydown);
-	glutSpecialUpFunc(special_keyup);
-
-	glutMouseFunc(mouse);
-	glutMotionFunc(dragged);
-	glutPassiveMotionFunc(motion);
-
-	// -------------------------------------------------------------------------
-	// Please uncomment the following line of code and replace 'MyVehicle'
-	//   with the name of the class you want to show as the current 
-	//   custom vehicle.
-	// -------------------------------------------------------------------------
-	vehicle = new MyVehicle();
+	//Declare SM 
+	TCHAR PMT[] = TEXT("ProcessManagement");
+	SMObject PMObj(PMT, sizeof(ProcessManagement)); //pass szName and size 
+	TCHAR XB[] = TEXT("XBox");	//declare object
+	SMObject XBoxObj(XB, sizeof(Remote));
+	//Get access from this process to shared memory for PM and Xbox (needed for shutdown?) 
+	PMObj.SMAccess();
+	XBoxObj.SMAccess();
+	ProcessManagement * PM = (ProcessManagement*)PMObj.pData;
+	Remote * pXbox = (Remote*)XBoxObj.pData;
 
 
-	glutMainLoop();
+		const int WINDOW_WIDTH = 800;
+		const int WINDOW_HEIGHT = 600;
 
-	if (vehicle != NULL) {
-		delete vehicle;
-	}
+		glutInit(&argc, (char**)(argv));
+		glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
+		glutInitWindowPosition(0, 0);
+		glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+		glutCreateWindow("MTRN3500 - GL");
+
+		Camera::get()->setWindowDimensions(WINDOW_WIDTH, WINDOW_HEIGHT);
+
+		glEnable(GL_DEPTH_TEST);
+
+		glutDisplayFunc(display);
+		glutReshapeFunc(reshape);
+		glutIdleFunc(idle);
+		glutKeyboardFunc(keydown);
+		glutKeyboardUpFunc(keyup);
+		glutSpecialFunc(special_keydown);
+		glutSpecialUpFunc(special_keyup);
+
+		glutMouseFunc(mouse);
+		glutMotionFunc(dragged);
+		glutPassiveMotionFunc(motion);
+
+		// -------------------------------------------------------------------------
+		// Please uncomment the following line of code and replace 'MyVehicle'
+		//   with the name of the class you want to show as the current 
+		//   custom vehicle.
+		// -------------------------------------------------------------------------
+		vehicle = new MyVehicle();
+
+
+		glutMainLoop();
+
+		if (vehicle != NULL) {
+			delete vehicle;
+		}
 
 	return 0;
 }
@@ -115,6 +130,34 @@ void display() {
 	// -------------------------------------------------------------------------
 	//  This method is the main draw routine. 
 	// -------------------------------------------------------------------------
+	TCHAR PMT[] = TEXT("ProcessManagement");
+	SMObject PMObj(PMT, sizeof(ProcessManagement)); //pass szName and size 
+	TCHAR XB[] = TEXT("XBox");	//declare object
+	SMObject XBoxObj(XB, sizeof(Remote));
+	//Get access from this process to shared memory for PM and Xbox (needed for shutdown?) 
+	PMObj.SMAccess();
+	XBoxObj.SMAccess();
+	ProcessManagement * PM = (ProcessManagement*)PMObj.pData;
+	Remote * pXbox = (Remote*)XBoxObj.pData;
+	if (PM->Shutdown.Flags.Visualisation)
+	{
+		exit(0); //exit if PM tells it to shutdown 
+	}
+	PM->Heartbeat.Flags.Visualisation = 1; //set heartbeat
+
+	//detect PMT still alive 
+	if (!PM->Heartbeat.Flags.PM)	//check process management is still running 
+	{
+		PMFailCount++;
+		if (PMFailCount > 200)
+		{
+			PMFailCount = 0;
+			exit(0);
+		}
+	}
+	else PMFailCount = 0;
+	
+	
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -175,6 +218,7 @@ double getTime()
 
 void idle() {
 
+	
 	if (KeyManager::get()->isAsciiKeyPressed('a')) {
 		Camera::get()->strafeLeft();
 	}

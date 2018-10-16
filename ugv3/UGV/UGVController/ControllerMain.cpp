@@ -40,7 +40,7 @@ int  main()
 	XBoxObj.SMAccess();
 
 	ProcessManagement * PM = (ProcessManagement*)PMObj.pData;
-	Remote *pXBox = (Remote*)XBoxObj.pData;
+	Remote *pXBox = (Remote*)XBoxObj.pData; //accessing the xbox data to send commands to the ugv 
 
 	if (UGV.ConnectToServer() != 0)
 	{
@@ -54,11 +54,10 @@ int  main()
 
 	PM->Shutdown.Flags.UGV = 0;
 
-	while (!PM->Shutdown.Flags.UGV)
+	while (!PM->Shutdown.Flags.UGV) //start main loop 
 	{
 		//get time stamp from PM
 		PMTimeStamp = PM->PMTimeStamp;
-
 		PM->Heartbeat.Flags.UGV = 1;
 
 		//local timestamp
@@ -66,7 +65,7 @@ int  main()
 		UGVTimeStamp = (double)HPC / (double)Frequency;
 
 
-		UGV.Drive(pXBox->setSpeed, pXBox->setSteering);
+		UGV.Drive(pXBox->setSpeed, pXBox->setSteering);	//send the drive commands 
 
 		//calculate delay in transfer data
 		//terminate

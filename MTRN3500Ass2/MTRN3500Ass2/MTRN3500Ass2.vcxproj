@@ -91,7 +91,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\Useful code fragments for Assignment 2-20180930;C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,6 +168,8 @@
     <ClInclude Include="Vehicle.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Useful code fragments for Assignment 2-20180930\SMFcn.cpp" />
+    <ClCompile Include="..\..\Useful code fragments for Assignment 2-20180930\SMObject.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Frustum.cpp" />
     <ClCompile Include="Ground.cpp" />

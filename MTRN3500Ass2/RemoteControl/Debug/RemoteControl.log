@@ -1,2 +1,3 @@
 ﻿  RemoteControl.cpp
+c:\users\kevin\documents\github\mtrn3500ass2\mtrn3500ass2\remotecontrol\remotecontrol.cpp(21): warning C4101: 'Vibration': unreferenced local variable
   RemoteControl.vcxproj -> C:\Users\Kevin\Documents\GitHub\MTRN3500Ass2\MTRN3500Ass2\Debug\RemoteControl.exe

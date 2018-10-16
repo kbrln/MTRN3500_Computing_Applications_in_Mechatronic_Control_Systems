@@ -32,5 +32,8 @@
     <ClCompile Include="..\..\Useful code fragments for Assignment 2-20180930\SMObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NonOOPXBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
